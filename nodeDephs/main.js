@@ -14,7 +14,8 @@ const treeData = {
     root: "1",
   },
 };
-const findNodeInfoById = (id) => treeData.tree.nodes.find((item) => item.id === id);
+const findNodeInfoById = (id) =>
+  treeData.tree.nodes.find((item) => item.id === id);
 
 const buildTree = (nodeId) => {
   const nodeInfo = findNodeInfoById(nodeId);
@@ -46,7 +47,7 @@ function nodeDepths(root) {
   const stack = [{ node: root, depth: 0 }];
   while (stack.length > 0) {
     const { node, depth } = stack.pop();
-    console.log("before", stack)
+    console.log("before", stack);
     // 		if null dont do the code below
     if (node === null) continue;
     // 		0 + 1 = 1;
@@ -66,3 +67,15 @@ function nodeDepths(root) {
 }
 
 nodeDepths(binaryTree);
+
+function recursion(root, depth = 0) {
+  // Handle base case of recursion
+  if (!root) {
+    return 0
+  }
+  return (
+    depth + recursion(root.left, depth + 1) + recursion(root.right, depth + 1)
+  );
+}
+
+recursion(binaryTree);

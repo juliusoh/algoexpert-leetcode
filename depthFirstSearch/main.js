@@ -10,11 +10,11 @@ class Node {
   }
 
   depthFirstSearch(array) {
-    array.push(this.name);
-    for (const child in this.children) {
-      child.depthFirstSearch(array);
-    }
-    return array;
+    // array.push(this.name);
+    // for (const child in this.children) {
+    //   child.depthFirstSearch(array);
+    // }
+    // return array;
   }
 }
 
@@ -37,6 +37,9 @@ const graphData = {
   }
 }
 
-const graph = new Node(graphData.graph.nodes)
-const result = graph.depthFirstSearch(graphData.graph.nodes)
-console.log(result)
+const graph = new Node("A");
+graph.addChild("B")
+graph.addChild("C")
+graph.addChild("D")
+
+console.log(graph)
