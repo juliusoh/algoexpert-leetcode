@@ -23,3 +23,4 @@ const useJulius = <T>(value: T): [T, (newValue: T) => T] => [
 const [animal, setAnimal] = useJulius(true);
 
 setAnimal(false)
+console.log(setAnimal(false))

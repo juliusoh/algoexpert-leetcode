@@ -1,4 +1,8 @@
 // O(n) time | O(1) space
+// A function that returns a a boolean representing whether the array is monotonic
+// Monotonic = if elements from left to right are entirely 
+// non-increasing or non decreasing
+
 function monotonicArray(array) {
     if (array.length <= 2) {
         return true;
