@@ -24,20 +24,20 @@ const linkedListDataV2 = {
       value: 1,
       next: {
         value: 3,
-      },
-      next: {
-        value: 4,
         next: {
           value: 4,
           next: {
             value: 4,
             next: {
-              value: 5,
+              value: 4,
               next: {
-                value: 6,
+                value: 5,
                 next: {
                   value: 6,
-                  next: null,
+                  next: {
+                    value: 6,
+                    next: null,
+                  },
                 },
               },
             },
@@ -59,21 +59,18 @@ class LinkedList {
 const linkedList = new LinkedList(linkedListDataV2);
 // console.log(linkedList)
 
+//   Write a function that returns a modified version of the linked list
+// that oesnt contain any nodes with duplicate values
 function removeDuplicatesFromLinkedList(linkedList) {
   let currentNode = linkedList;
-  console.log("currentNode", currentNode);
-  while (currentNode) {
-    let nextDifferentNode = currentNode.next;
-    console.log("assignment", nextDifferentNode);
-    while (nextDifferentNode && nextDifferentNode.value === currentNode.value) {
-      nextDifferentNode = nextDifferentNode.next;
-      console.log("nextDifferentNode", nextDifferentNode);
+  while (currentNode.next) {
+    if (currentNode.value === currentNode.next.value) {
+      currentNode.next = currentNode.next.next;
+    } else {
+      currentNode = currentNode.next;
     }
-    currentNode.next = nextDifferentNode;
-    currentNode = nextDifferentNode;
   }
-  console.log("final list", linkedList);
   return linkedList;
 }
 
-removeDuplicatesFromLinkedList(linkedListDataV2);
+console.log(removeDuplicatesFromLinkedList(linkedListDataV2));

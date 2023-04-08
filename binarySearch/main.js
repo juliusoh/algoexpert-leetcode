@@ -2,6 +2,9 @@ function binarySearch(array, target) {
   return binarySearchHelper(array, target, 0, array.length - 1);
 }
 
+// Function takes in a sorted array of integers as well as target integer
+// If target is contained in the array and return its index
+
 function binarySearchHelper(array, target, left, right) {
   if (left > right) return false;
   const middle = Math.floor((left + right) / 2);
